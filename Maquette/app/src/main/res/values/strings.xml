@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Maquette</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="label_next">Next</string>
+    <string name="label_previous">Previous</string>
+    <string name="label_yes">Oui</string>
+    <string name="label_lets_go">"C'est parti !"</string>
+    <string name="label_no">Non</string>
+    <string name="label_welcome">Bienvenue !</string>
+    <string name="label_first_question">
+        "Hey &lt;username&gt; !\n\n Es-tu prêt à prendre soin de toi aujourd'hui ?"
+    </string>
+    <string name="label_wonderful">Génial !</string>
+    <string name="label_answer_activity">Vous avez répondu %s !</string>
+</resources>
