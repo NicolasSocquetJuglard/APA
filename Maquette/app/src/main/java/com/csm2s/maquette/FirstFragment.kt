@@ -41,7 +41,7 @@ class FirstFragment : Fragment() {
         }
 
         binding.buttonNo.setOnClickListener {
-            val answerQuestionByButton = view.findViewById<Button>(R.id.button_yes)
+            val answerQuestionByButton = view.findViewById<Button>(R.id.button_no)
             val answerQuestion = answerQuestionByButton.text.toString()
             val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(answerQuestion)
             findNavController().navigate(action)

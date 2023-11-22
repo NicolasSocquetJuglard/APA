@@ -4,8 +4,8 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="label_next">Next</string>
-    <string name="label_previous">Previous</string>
+    <string name="label_next">Suivant</string>
+    <string name="label_previous">Retour</string>
     <string name="label_yes">Oui</string>
     <string name="label_lets_go">"C'est parti !"</string>
     <string name="label_no">Non</string>
@@ -15,4 +15,5 @@
     </string>
     <string name="label_wonderful">Génial !</string>
     <string name="label_answer_activity">Vous avez répondu %s !</string>
+    <string name="label_waiting_for_answer">"En attente d'une réponse&#8230;"</string>
 </resources>
