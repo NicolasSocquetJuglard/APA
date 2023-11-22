@@ -39,6 +39,13 @@ class FirstFragment : Fragment() {
             val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(answerQuestion)
             findNavController().navigate(action)
         }
+
+        binding.buttonNo.setOnClickListener {
+            val answerQuestionByButton = view.findViewById<Button>(R.id.button_yes)
+            val answerQuestion = answerQuestionByButton.text.toString()
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(answerQuestion)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
