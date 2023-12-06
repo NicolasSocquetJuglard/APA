@@ -18,6 +18,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(it)
             }
         }
+        val buttonNo = findViewById<Button>(R.id.buttonAnswerNo)
+        buttonNo.setOnClickListener {
+            Intent(this, AnswerNoActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

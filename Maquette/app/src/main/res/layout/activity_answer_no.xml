@@ -14,7 +14,7 @@
         android:id="@+id/textViewQuestionDenialAPA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="200dp"
         android:text="@string/question_why_denial"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,62 +24,71 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chipDenialBecausePain"
+        style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="80dp"
         android:checkable="true"
         android:text="@string/denial_because_pain"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewQuestionDenialAPA" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chipDenialBecauseFatigue"
+        style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:checkable="true"
         android:text="@string/denial_because_fatigue"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chipDenialBecausePain" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chipDenialBecauseMotivation"
+        style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:checkable="true"
         android:text="@string/denial_because_motivation"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chipDenialBecauseFatigue" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chipDenialBecauseTime"
+        style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:checkable="true"
         android:text="@string/denial_because_time"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chipDenialBecauseMotivation" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chipDenialBecauseOther"
+        style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:checkable="true"
         android:text="@string/denial_because_other"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chipDenialBecauseTime" />
 
