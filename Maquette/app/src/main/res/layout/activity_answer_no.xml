@@ -9,12 +9,11 @@
     android:padding="16dp"
     tools:context=".AnswerNoActivity">
 
-
     <TextView
         android:id="@+id/textViewQuestionDenialAPA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="220dp"
         android:text="@string/question_why_denial"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,69 +26,95 @@
         style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:checkable="true"
         android:text="@string/denial_because_pain"
         android:textSize="30sp"
+        app:chipIcon="@drawable/emoji_hurted"
+        app:chipIconVisible="true"
+        app:iconStartPadding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/chipDenialBecauseFatigue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewQuestionDenialAPA" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuestionDenialAPA"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="VisualLintButtonSize" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chipDenialBecauseFatigue"
         style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="60dp"
         android:checkable="true"
         android:text="@string/denial_because_fatigue"
         android:textSize="30sp"
+        app:chipIcon="@drawable/emoji_fatigue"
+        app:chipIconVisible="true"
+        app:iconStartPadding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/chipDenialBecauseMotivation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipDenialBecausePain" />
+        app:layout_constraintTop_toBottomOf="@+id/chipDenialBecausePain"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="VisualLintButtonSize" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chipDenialBecauseMotivation"
         style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="60dp"
         android:checkable="true"
         android:text="@string/denial_because_motivation"
         android:textSize="30sp"
+        app:chipIcon="@drawable/emoji_depressed"
+        app:chipIconVisible="true"
+        app:iconStartPadding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/chipDenialBecauseTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipDenialBecauseFatigue" />
+        app:layout_constraintTop_toBottomOf="@+id/chipDenialBecauseFatigue"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="VisualLintButtonSize" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chipDenialBecauseTime"
         style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="60dp"
         android:checkable="true"
         android:text="@string/denial_because_time"
         android:textSize="30sp"
+        app:chipIcon="@drawable/emoji_time"
+        app:chipIconVisible="true"
+        app:iconStartPadding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/chipDenialBecauseOther"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipDenialBecauseMotivation" />
+        app:layout_constraintTop_toBottomOf="@+id/chipDenialBecauseMotivation"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="VisualLintButtonSize" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chipDenialBecauseOther"
         style="@style/CustomChipStyle"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginBottom="80dp"
         android:checkable="true"
         android:text="@string/denial_because_other"
         android:textSize="30sp"
+        app:chipIcon="@drawable/emoji_other"
+        app:chipIconVisible="true"
+        app:iconStartPadding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipDenialBecauseTime" />
+        app:layout_constraintTop_toBottomOf="@+id/chipDenialBecauseTime"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
