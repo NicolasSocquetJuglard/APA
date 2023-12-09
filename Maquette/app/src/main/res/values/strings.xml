@@ -17,11 +17,8 @@
     <string name="label_answer_activity">Vous avez répondu %s !</string>
     <string name="label_waiting_for_answer">"En attente d'une réponse&#8230;"</string>
     <string name="label_apa_proposal">"Excellent !\nVoici l'APA que nous vous avons choisi."</string>
-    <string name="label_about_APA_1">
-        "Des études ont prouvé que la pratique d'une activité physique adaptée (APA) permet de lutter plus efficacement contre le cancer."
-    </string>
-    <string name="label_about_APA_2">
-        "\nSmartCare APA vous permet de réaliser des APA adaptées à vos besoins et à vos capacités pour mettre toutes les chances de votre coté et vous encourager au quotidien, facilement."
+    <string name="label_about_APA">
+        "Des études ont prouvé que la pratique d'une activité physique adaptée (APA) permet de <b>lutter plus efficacement</b> contre le cancer.\n\n<b>SmartCare APA</b> vous permet de réaliser des APA adaptées à vos besoins et à vos capacités pour mettre toutes les chances de votre coté et <b>vous encourager au quotidien, en toute simplicité.</b>"
     </string>
     <string name="question_why_denial">Des raisons particulières ?</string>
     <string name="denial_because_pain">"J'ai mal quelque part"</string>
@@ -29,6 +26,8 @@
     <string name="denial_because_motivation">"Je n'ai pas le moral"</string>
     <string name="denial_because_time">"Je n'ai pas le temps"</string>
     <string name="denial_because_other">Autre</string>
+    <string name="label_return">Retour</string>
+    <string name="label_confirm">Valider</string>
 
 
 </resources>

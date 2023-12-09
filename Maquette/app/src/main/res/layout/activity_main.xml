@@ -19,32 +19,33 @@
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewLogo" />
 
     <Button
         android:id="@+id/buttonAnswerYes"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="80dp"
-        android:layout_marginTop="-200dp"
-        android:layout_marginEnd="200dp"
         android:text="@string/label_lets_go"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewAboutAPA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonAnswerNo"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/buttonAnswerNo"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="80dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="-200dp"
+        android:backgroundTint="@color/blue2"
         android:text="@string/label_no"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewAboutAPA"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAnswerYes"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeMessage" />
 
@@ -61,34 +62,18 @@
         tools:ignore="ImageContrastCheck" />
 
     <TextView
-        android:id="@+id/textViewAboutAPA1"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewAboutAPA"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="@string/label_about_APA_1"
-        android:textAlignment="center"
-        android:textSize="22sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@id/textViewAboutAPA2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonAnswerYes"
-        tools:ignore="VisualLintLongText" />
-
-    <TextView
-        android:id="@+id/textViewAboutAPA2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:text="@string/label_about_APA_2"
+        android:text="@string/label_about_APA"
         android:textAlignment="center"
         android:textSize="22sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewAboutAPA1"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="VisualLintLongText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
