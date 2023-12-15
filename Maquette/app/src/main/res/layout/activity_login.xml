@@ -75,7 +75,7 @@
         tools:ignore="HardcodedText,VisualLintTextFieldSize" />
 
     <Button
-        android:id="@+id/buttonConnect"
+        android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="0dp"
