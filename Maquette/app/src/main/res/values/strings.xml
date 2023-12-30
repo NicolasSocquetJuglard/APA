@@ -29,5 +29,6 @@
     <string name="label_return">Retour</string>
     <string name="label_confirm">Valider</string>
     <string name="label_login_instruction">Bienvenue !\n\nVeuillez entrer vos identifiants Withings afin de vous connecter&#8230;</string>
+    <string name="label_finished_apa">"J'ai terminé !"</string>
 
 </resources>
