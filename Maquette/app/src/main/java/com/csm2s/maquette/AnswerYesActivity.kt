@@ -22,6 +22,25 @@ class AnswerYesActivity : AppCompatActivity() {
             }
         }
 
+        val buttonFinishedApa = findViewById<Button>(R.id.buttonFinishedApa)
+        buttonFinishedApa.setOnClickListener {
+            val dialogBuilder = AlertDialog.Builder(this)
+            dialogBuilder.setTitle("Finir la séance et passer au questionnaire ?")
+            dialogBuilder.setMessage("Une fois la séance terminée, vous ne pourrez plus revenir en arrière !")
+            dialogBuilder.setPositiveButton("Confirmer") {
+                alertDialog, which ->
+                Intent(this, QuestionnairePostApaActivity::class.java).also{
+                    startActivity(it)
+                }
+            }
+            dialogBuilder.setNegativeButton("Retour") {
+                alertDialog, which ->
+            }
+
+            val alertDialog = dialogBuilder.create()
+            alertDialog.show()
+        }
+
         val imageViewApa1 = findViewById<ImageView>(R.id.imageViewApa1)
         val imageViewApa2 = findViewById<ImageView>(R.id.imageViewApa2)
         val (apaId1, apaId2) = getApaId(imageViewApa1)
