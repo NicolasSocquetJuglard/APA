@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="168dp"
-        android:text="Bravo pour vos efforts !\n\nCe questionnaire nous aidera à adapter vos séances :"
+        android:text="Bravo pour tes efforts !\n\nCe questionnaire nous aidera à adapter vos séances :"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarDifficulty" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewProgressDifficulty" />
 
     <SeekBar
         android:id="@+id/seekBarPain"
@@ -109,7 +109,31 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarPain"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProgressPain"
         app:layout_constraintVertical_bias="0.324" />
+
+    <TextView
+        android:id="@+id/textViewProgressDifficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="./10"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarDifficulty" />
+
+    <TextView
+        android:id="@+id/textViewProgressPain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="./10"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarPain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
