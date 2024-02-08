@@ -1,7 +1,9 @@
 package com.csm2s.maquette
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
 
@@ -41,5 +43,13 @@ class QuestionnairePostApaActivity : AppCompatActivity() {
             }
         }
         seekBarPain.setOnSeekBarChangeListener(sbPainListener)
+
+        val btnConfirmQuestionnaire = findViewById<Button>(R.id.buttonConfirmQuestionnairePostApa)
+        btnConfirmQuestionnaire.setOnClickListener {
+            // Il faudra récupérer les valeurs des 2 seekBars soit pour mettre sur SQLite soit les passer dans l'Intent
+            Intent(this, ProfileActivity::class.java).also{
+                startActivity(it)
+            }
+        }
     }
 }
