@@ -7,6 +7,9 @@ import android.widget.Button
 import android.widget.SeekBar
 import android.widget.TextView
 
+import androidx.appcompat.app.AlertDialog
+
+
 class QuestionnairePostApaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +53,20 @@ class QuestionnairePostApaActivity : AppCompatActivity() {
             Intent(this, ProfileActivity::class.java).also{
                 startActivity(it)
             }
+
+        val buttonConfirmQuestionnairePostApa =
+            findViewById<Button>(R.id.buttonConfirmQuestionnairePostApa)
+        buttonConfirmQuestionnairePostApa.setOnClickListener {
+            val dialogBuilder = AlertDialog.Builder(this)
+            dialogBuilder.setTitle("Merci !")
+            dialogBuilder.setMessage("Vos réponses ont bien été envoyées")
+            dialogBuilder.setPositiveButton("Retour à l'accueil") { alertDialog, which ->
+                Intent(this, MainActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+            val alertDialog = dialogBuilder.create()
+            alertDialog.show()
         }
     }
 }
