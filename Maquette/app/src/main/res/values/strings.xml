@@ -4,6 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
+    <string name="label_username">Username</string>
     <string name="label_next">Suivant</string>
     <string name="label_previous">Retour</string>
     <string name="label_yes">Oui</string>
@@ -31,7 +32,7 @@
     <string name="label_login_instruction">Bienvenue !\n\nVeuillez entrer vos identifiants Withings afin de vous connecter&#8230;</string>
     <string name="label_finished_apa">"J'ai terminé !"</string>
     <string name="label_quedstionnaire_post_apa">"Bravo pour vos efforts !\n\nCe questionnaire nous aidera à adapter vos séances :"</string>
-    <string name="question_number_exercises">"Combien d'exercices avez-vous réalisé ?"</string>
+    <string name="question_number_exercises">"Combien d'exercices avez-vous réalisés ?"</string>
     <string name="question_difficulty">"Sur une échelle de 0 à 10, quelle était la difficulté de la séance ?"</string>
     <string name="question_pain">"Sur une échelle de 0 à 10, avez-vous ressenti des douleurs/gênes ?"</string>
 
