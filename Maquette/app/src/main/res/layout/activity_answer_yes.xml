@@ -58,6 +58,7 @@
                 android:scrollbars="vertical"
                 app:srcCompat="@drawable/logo_smartcareapa"
                 tools:layout_editor_absoluteY="648dp" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
