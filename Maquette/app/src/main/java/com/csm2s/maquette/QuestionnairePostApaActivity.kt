@@ -47,21 +47,15 @@ class QuestionnairePostApaActivity : AppCompatActivity() {
         }
         seekBarPain.setOnSeekBarChangeListener(sbPainListener)
 
-        val btnConfirmQuestionnaire = findViewById<Button>(R.id.buttonConfirmQuestionnairePostApa)
-        btnConfirmQuestionnaire.setOnClickListener {
-            // Il faudra récupérer les valeurs des 2 seekBars soit pour mettre sur SQLite soit les passer dans l'Intent
-            Intent(this, ProfileActivity::class.java).also{
-                startActivity(it)
-            }
-
         val buttonConfirmQuestionnairePostApa =
             findViewById<Button>(R.id.buttonConfirmQuestionnairePostApa)
         buttonConfirmQuestionnairePostApa.setOnClickListener {
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setTitle("Merci !")
             dialogBuilder.setMessage("Vos réponses ont bien été envoyées")
+            // Il faudra récupérer les valeurs des 2 seekBars soit pour mettre sur SQLite soit les passer dans l'Intent
             dialogBuilder.setPositiveButton("Retour à l'accueil") { alertDialog, which ->
-                Intent(this, MainActivity::class.java).also {
+                Intent(this, ProfileActivity::class.java).also {
                     startActivity(it)
                 }
             }
