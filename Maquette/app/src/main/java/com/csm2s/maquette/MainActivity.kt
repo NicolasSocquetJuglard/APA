@@ -24,12 +24,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
-        val buttonProfile = findViewById<Button>(R.id.buttonGoToProfile)
-        buttonProfile.setOnClickListener {
-            Intent(this, ProfileActivity::class.java).also {
-                startActivity(it)
-            }
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
