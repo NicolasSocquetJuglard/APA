@@ -35,5 +35,6 @@
     <string name="question_number_exercises">"Combien d'exercices avez-vous réalisés ?"</string>
     <string name="question_difficulty">"Sur une échelle de 0 à 10, quelle était la difficulté de la séance ?"</string>
     <string name="question_pain">"Sur une échelle de 0 à 10, avez-vous ressenti des douleurs/gênes ?"</string>
+    <string name="label_icon_new_username">icon for modify action</string>
 
 </resources>

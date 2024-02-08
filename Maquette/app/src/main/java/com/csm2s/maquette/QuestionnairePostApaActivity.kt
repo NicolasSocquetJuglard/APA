@@ -47,8 +47,7 @@ class QuestionnairePostApaActivity : AppCompatActivity() {
         }
         seekBarPain.setOnSeekBarChangeListener(sbPainListener)
 
-        val buttonConfirmQuestionnairePostApa =
-            findViewById<Button>(R.id.buttonConfirmQuestionnairePostApa)
+        val buttonConfirmQuestionnairePostApa = findViewById<Button>(R.id.buttonConfirmQuestionnairePostApa)
         buttonConfirmQuestionnairePostApa.setOnClickListener {
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setTitle("Merci !")
