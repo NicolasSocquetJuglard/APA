@@ -1,7 +1,6 @@
 package com.csm2s.maquette
 
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -11,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 
 class ProfileActivity : AppCompatActivity() {
     // utiliser des SharedPreferences (voir sur internet)
@@ -41,6 +39,11 @@ class ProfileActivity : AppCompatActivity() {
         currentUser = usersByIds[0]
         currentUsername = currentUser.username
         txtUsername.text = currentUsername
+
+        val reponsesDao = db.ReponsesQuestionnairePostAPADao()
+
+        // Récupération des réponses enregistrées
+        val listReponses = reponsesDao.getAllReponses()
 
         val buttonModifyUsername = findViewById<ImageButton>(R.id.imageButtonModifyUsername)
         val txtNewUsername = findViewById<EditText>(R.id.editTextModifyUsername)
@@ -78,6 +81,14 @@ class ProfileActivity : AppCompatActivity() {
                 newUsername)
             userDao.updateUser(updatedUser)
         }
+        val Reponse = reponsesDao.loadReponsesByIds(1)
+        val textViewReponses = findViewById<TextView>(R.id.textViewReponses)
+        var displayText = ""
+        for (reponse in listReponses) {
+            displayText += "ID: ${reponse.reponseid}, Nb Exercices: ${reponse.nb_exercices}, Difficulté: ${reponse.difficulte}, Douleur: ${reponse.douleur}\n"
+        }
+        textViewReponses.text = displayText
+        
         val buttonProfToMain = findViewById<Button>(R.id.buttonProfileToMain)
         buttonProfToMain.setOnClickListener {
             Intent(this, MainActivity::class.java).also{

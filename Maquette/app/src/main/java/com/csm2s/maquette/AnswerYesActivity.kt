@@ -15,6 +15,8 @@ class AnswerYesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_answer_yes)
 
+        val db = AppDatabase.getInstance(applicationContext)
+
         val buttonBackApa = findViewById<Button>(R.id.buttonBackApa)
         buttonBackApa.setOnClickListener {
             Intent(this, MainActivity::class.java).also{
