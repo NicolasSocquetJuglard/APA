@@ -21,6 +21,7 @@ class ProfileActivity : AppCompatActivity() {
         val txtUsername = findViewById<TextView>(R.id.textViewUsernameProfile)
 
         val db = AppDatabase.getInstance(applicationContext)
+
         val userDao = db.userDao()
         val usersByIds = userDao.loadUsersByIds(intArrayOf(1))
         val currentUsername: String
@@ -29,8 +30,6 @@ class ProfileActivity : AppCompatActivity() {
         txtUsername.text = currentUsername
 
         val reponsesDao = db.ReponsesQuestionnairePostAPADao()
-
-        // Récupération des réponses enregistrées
         val listReponses = reponsesDao.getAllReponses()
 
         val buttonModifyUsername = findViewById<ImageButton>(R.id.imageButtonModifyUsername)
