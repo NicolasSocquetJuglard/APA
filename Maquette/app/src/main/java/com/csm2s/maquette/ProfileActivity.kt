@@ -81,7 +81,6 @@ class ProfileActivity : AppCompatActivity() {
                 newUsername)
             userDao.updateUser(updatedUser)
         }
-        val Reponse = reponsesDao.loadReponsesByIds(1)
         val textViewReponses = findViewById<TextView>(R.id.textViewReponses)
         var displayText = ""
         for (reponse in listReponses) {
