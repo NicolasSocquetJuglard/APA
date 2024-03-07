@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -23,20 +24,7 @@ class ProfileActivity : AppCompatActivity() {
         val userDao = db.userDao()
         val usersByIds = userDao.loadUsersByIds(intArrayOf(1))
         val currentUsername: String
-        val currentUser: User
-        /*if(usersByIds.isEmpty()){
-            Toast.makeText(this, "Aucun utilisateur trouvé", Toast.LENGTH_LONG)
-            currentUser = User(1,
-                "Nicolas",
-                "Socquet-Juglard",
-                22,
-                "new_username")
-            currentUsername = currentUser.username
-        }else{
-            currentUser = usersByIds[0]
-            currentUsername = currentUser.username
-        }*/
-        currentUser = usersByIds[0]
+        val currentUser: User = usersByIds[0]
         currentUsername = currentUser.username
         txtUsername.text = currentUsername
 
