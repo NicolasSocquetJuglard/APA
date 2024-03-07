@@ -11,15 +11,36 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 
 class ProfileActivity : AppCompatActivity() {
-
     // utiliser des SharedPreferences (voir sur internet)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
         val txtUsername = findViewById<TextView>(R.id.textViewUsernameProfile)
+
+        val db = AppDatabase.getInstance(applicationContext)
+        val userDao = db.userDao()
+        val usersByIds = userDao.loadUsersByIds(intArrayOf(1))
+        val currentUsername: String
+        val currentUser: User
+        /*if(usersByIds.isEmpty()){
+            Toast.makeText(this, "Aucun utilisateur trouvé", Toast.LENGTH_LONG)
+            currentUser = User(1,
+                "Nicolas",
+                "Socquet-Juglard",
+                22,
+                "new_username")
+            currentUsername = currentUser.username
+        }else{
+            currentUser = usersByIds[0]
+            currentUsername = currentUser.username
+        }*/
+        currentUser = usersByIds[0]
+        currentUsername = currentUser.username
+        txtUsername.text = currentUsername
 
         val buttonModifyUsername = findViewById<ImageButton>(R.id.imageButtonModifyUsername)
         val txtNewUsername = findViewById<EditText>(R.id.editTextModifyUsername)
@@ -49,6 +70,13 @@ class ProfileActivity : AppCompatActivity() {
             buttonConfirmNewUsername.isEnabled = false
             buttonConfirmNewUsername.visibility = View.GONE
             txtNewUsername.visibility = View.GONE
+            val updatedUser = User(
+                currentUser.uid,
+                currentUser.firstName,
+                currentUser.lastName,
+                currentUser.age,
+                newUsername)
+            userDao.updateUser(updatedUser)
         }
         val buttonProfToMain = findViewById<Button>(R.id.buttonProfileToMain)
         buttonProfToMain.setOnClickListener {

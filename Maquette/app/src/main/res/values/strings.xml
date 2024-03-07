@@ -14,6 +14,7 @@
     <string name="label_first_question">
         "Hey &lt;username&gt; !\n\n Es-tu prêt à prendre soin de toi aujourd'hui ?"
     </string>
+    <string name="label_first_question_short">"Es-tu prêt à prendre soin de toi aujourd'hui ?"</string>
     <string name="label_wonderful">Génial !</string>
     <string name="label_answer_activity">Vous avez répondu %s !</string>
     <string name="label_waiting_for_answer">"En attente d'une réponse&#8230;"</string>

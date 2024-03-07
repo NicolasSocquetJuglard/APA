@@ -6,11 +6,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val db = AppDatabase.getInstance(applicationContext)
+        val userDao = db.userDao()
+        val usersByIds = userDao.loadUsersByIds(intArrayOf(1))
+        val currentUser = usersByIds[0]
+        val username = currentUser.username
+
+        val viewWelcomeQuestion = findViewById<TextView>(R.id.welcomeQuestion)
+        val txtWelcomeQuestion = "Salut "+username+".\n"+applicationContext.getString(R.string.label_first_question_short)
+        viewWelcomeQuestion.text = txtWelcomeQuestion
 
         val buttonYes = findViewById<Button>(R.id.buttonAnswerYes)
         buttonYes.setOnClickListener {

@@ -16,6 +16,18 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val db = AppDatabase.getInstance(applicationContext)
+        val userDao = db.userDao()
+        val listUsers = userDao.getAllUsers()
+        if(listUsers.isEmpty()){
+            val firstUser = User(1,
+                "Nicolas",
+                "Socquet-Juglard",
+                22,
+                "javelin_boss")
+            userDao.insertUsers(firstUser)
+        }
+
         val emailView = findViewById<EditText>(R.id.editTextEmail)
         val passwordView = findViewById<EditText>(R.id.editTextPassword)
         val buttonLogin = findViewById<Button>(R.id.buttonLogin)
