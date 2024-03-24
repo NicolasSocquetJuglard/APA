@@ -1,20 +1,32 @@
 package com.csm2s.maquette
 
+import android.app.AlarmManager
+import android.app.AlarmManager.INTERVAL_DAY
+import android.app.AlarmManager.RTC_WAKEUP
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.PendingIntent.FLAG_IMMUTABLE
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
+import androidx.appcompat.app.AppCompatActivity
+import java.util.Calendar
+
+const val NOTIFICATION_ID = 666
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        createNotificationChannel()
+        scheduleNotification(this)
 
         val db = AppDatabase.getInstance(applicationContext)
         val userDao = db.userDao()
@@ -65,4 +77,39 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
+
+    private fun createNotificationChannel(){
+        val importance = NotificationManager.IMPORTANCE_HIGH
+        val channel = NotificationChannel(
+            this.getString(R.string.notif_channel_id),
+            this.getString(R.string.notif_channel_name),
+            importance).apply{description = "Notification for APA"}
+        val notificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+    }
+
+
+    private fun scheduleNotification(context: Context?){
+        val alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(context, AlarmReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, FLAG_IMMUTABLE)
+        val calendar = Calendar.getInstance().apply{
+            timeInMillis = System.currentTimeMillis()
+            set(Calendar.HOUR_OF_DAY, 17)
+            set(Calendar.MINUTE, 37)
+            set(Calendar.SECOND, 0)
+            if(timeInMillis <= System.currentTimeMillis()){add(Calendar.DAY_OF_MONTH, 1)}
+        }
+        alarmManager.setRepeating(
+            RTC_WAKEUP,
+            calendar.timeInMillis,
+            INTERVAL_DAY,
+            pendingIntent)
+    }
 }
+
+
+
+
+

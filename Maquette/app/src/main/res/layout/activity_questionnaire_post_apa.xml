@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="175dp"
-        android:text="Bravo pour tes efforts !\n\nCe questionnaire nous aidera à adapter vos séances :"
+        android:text="@string/label_questionnaire_post_apa"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
