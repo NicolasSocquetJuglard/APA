@@ -52,8 +52,8 @@ class AnswerYesActivity : AppCompatActivity() {
     fun chooseAPA(imView: ImageView): Pair<Int, Int> {
 
         val db = AppDatabase.getInstance(applicationContext)
-        val reponsesDao = db.ReponsesQuestionnairePostAPADao()
-        val listReponses = reponsesDao.getAllReponses()
+        val reponsesDao = db.AnswerExercisesDao()
+        val listReponses = reponsesDao.getAllAnswerExercises()
         val lastThreeReponses = listReponses.takeLast(3)
         var somme_difficulte = 0
         var somme_douleur = 0

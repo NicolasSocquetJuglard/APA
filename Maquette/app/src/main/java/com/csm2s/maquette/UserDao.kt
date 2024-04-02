@@ -10,7 +10,7 @@ import androidx.room.Update
 interface UserDao {
     @Query("SELECT * FROM users")
     fun getAllUsers(): List<User>
-    @Query("SELECT * FROM users WHERE uid IN (:idList)")
+    @Query("SELECT * FROM users WHERE userId IN (:idList)")
     fun loadUsersByIds(idList: IntArray): List<User>
     @Query("SELECT * FROM users WHERE first_name LIKE :first AND "+"last_name LIKE :last LIMIT 1")
     fun findUserByName(first: String, last: String): User

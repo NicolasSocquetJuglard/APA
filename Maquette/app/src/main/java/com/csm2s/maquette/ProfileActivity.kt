@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -29,8 +28,8 @@ class ProfileActivity : AppCompatActivity() {
         currentUsername = currentUser.username
         txtUsername.text = currentUsername
 
-        val reponsesDao = db.ReponsesQuestionnairePostAPADao()
-        val listReponses = reponsesDao.getAllReponses()
+        val AnswerExercisesDao = db.AnswerExercisesDao()
+        val listReponses = AnswerExercisesDao.getAllAnswerExercises()
 
         val buttonModifyUsername = findViewById<ImageButton>(R.id.imageButtonModifyUsername)
         val txtNewUsername = findViewById<EditText>(R.id.editTextModifyUsername)
@@ -61,7 +60,7 @@ class ProfileActivity : AppCompatActivity() {
             buttonConfirmNewUsername.visibility = View.GONE
             txtNewUsername.visibility = View.GONE
             val updatedUser = User(
-                currentUser.uid,
+                currentUser.userId,
                 currentUser.firstName,
                 currentUser.lastName,
                 currentUser.age,
@@ -71,7 +70,7 @@ class ProfileActivity : AppCompatActivity() {
         val textViewReponses = findViewById<TextView>(R.id.textViewReponses)
         var displayText = ""
         for (reponse in listReponses) {
-            displayText += "ID: ${reponse.reponseid}, Nb Exercices: ${reponse.nb_exercices}, Difficulté: ${reponse.difficulte}, Douleur: ${reponse.douleur}\n"
+            displayText += "ID: ${reponse.answerExercisesId}, Nb Exercices: ${reponse.nb_exercices}, Difficulté: ${reponse.difficulte}, Douleur: ${reponse.douleur}\n"
         }
         textViewReponses.text = displayText
         

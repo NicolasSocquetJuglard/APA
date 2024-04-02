@@ -18,7 +18,7 @@ class QuestionnairePostApaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_questionnaire_post_apa)
 
         val db = AppDatabase.getInstance(applicationContext)
-        val ReponsesQuestionnairePostAPADao = db.ReponsesQuestionnairePostAPADao()
+        val AnswerExercisesDao = db.AnswerExercisesDao()
 
         val ratingBarNumberExercises = findViewById<RatingBar>(R.id.ratingBarNumberExercises)
         ratingBarNumberExercises.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
@@ -63,8 +63,8 @@ class QuestionnairePostApaActivity : AppCompatActivity() {
             dialogBuilder.setTitle("Merci !")
             dialogBuilder.setMessage("Vos réponses ont bien été envoyées")
             // Il faudra récupérer les valeurs des 2 seekBars soit pour mettre sur SQLite soit les passer dans l'Intent
-            val reponse_actuelle = ReponsesQuestionnairePostAPA(0, nbExercicesRating, seekBarDifficulty.progress, seekBarPain.progress)
-            ReponsesQuestionnairePostAPADao.insertReponses(reponse_actuelle)
+            val reponse_actuelle = AnswerExercises(0, nbExercicesRating, seekBarDifficulty.progress, seekBarPain.progress)
+            AnswerExercisesDao.insertAnswerExercises(reponse_actuelle)
             dialogBuilder.setPositiveButton("Retour à l'accueil") { alertDialog, which ->
                 Intent(this, ProfileActivity::class.java).also {
                     startActivity(it)
