@@ -32,10 +32,13 @@
     <string name="label_confirm">Valider</string>
     <string name="label_login_instruction">Bienvenue !\n\nVeuillez entrer vos identifiants Withings afin de vous connecter&#8230;</string>
     <string name="label_finished_apa">"J'ai terminé !"</string>
-    <string name="label_quedstionnaire_post_apa">"Bravo pour vos efforts !\n\nCe questionnaire nous aidera à adapter vos séances :"</string>
+    <string name="label_questionnaire_post_apa">"Bravo pour vos efforts !\n\nCe questionnaire nous aidera à adapter vos séances :"</string>
     <string name="question_number_exercises">"Combien d'exercices avez-vous réalisés ?"</string>
     <string name="question_difficulty">"Sur une échelle de 0 à 10, quelle était la difficulté de la séance ?"</string>
     <string name="question_pain">"Sur une échelle de 0 à 10, avez-vous ressenti des douleurs/gênes ?"</string>
     <string name="label_icon_new_username">icon for modify action</string>
+    <string name="notif_channel_name">APA Notification Channel</string>
+    <string name="notif_channel_id">APA Notif Channel ID</string>
+    <string name="notif_content_text">"C'est l'heure de l'APA !"</string>
 
 </resources>
