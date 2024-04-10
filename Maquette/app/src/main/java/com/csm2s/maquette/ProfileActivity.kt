@@ -18,6 +18,7 @@ import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import kotlin.random.Random
 
+
 class ProfileActivity : AppCompatActivity() {
     // utiliser des SharedPreferences (voir sur internet)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -126,6 +127,8 @@ class ProfileActivity : AppCompatActivity() {
 //Graphique affichant les battements de coeur de chaque session
         val chart1 = findViewById<LineChart>(R.id.chart1)
 
+        chart1.xAxis.setDrawGridLines(false)
+
         val entries1 = ArrayList<Entry>()
         var x1 = 0f;
         var y1 = 0f;
@@ -134,9 +137,9 @@ class ProfileActivity : AppCompatActivity() {
             y1 = physio.heartBeat.toFloat()
             entries1.add(Entry(x1, y1))
         }
-        val dataSet1 = LineDataSet(entries1, "Label")
+        val dataSet1 = LineDataSet(entries1, "")
         dataSet1.color = android.graphics.Color.RED
-        dataSet1.valueTextColor = android.graphics.Color.BLACK
+        dataSet1.valueTextColor = android.graphics.Color.TRANSPARENT
 
         val lineData1 = LineData(dataSet1)
         chart1.data = lineData1
@@ -152,8 +155,11 @@ class ProfileActivity : AppCompatActivity() {
         })
 
         chart1.invalidate()
+
 //Graphique affichant les calories de chaque session
         val chart2 = findViewById<LineChart>(R.id.chart2)
+
+        chart2.xAxis.setDrawGridLines(false)
 
         val entries2 = ArrayList<Entry>()
         var x2 = 0f;
@@ -163,9 +169,9 @@ class ProfileActivity : AppCompatActivity() {
             y2 = physio.calories.toFloat()
             entries2.add(Entry(x2, y2))
         }
-        val dataSet2 = LineDataSet(entries2, "Label")
+        val dataSet2 = LineDataSet(entries2, "")
         dataSet2.color = android.graphics.Color.BLUE
-        dataSet2.valueTextColor = android.graphics.Color.BLACK
+        dataSet2.valueTextColor = android.graphics.Color.TRANSPARENT
 
         val lineData2 = LineData(dataSet2)
         chart2.data = lineData2
