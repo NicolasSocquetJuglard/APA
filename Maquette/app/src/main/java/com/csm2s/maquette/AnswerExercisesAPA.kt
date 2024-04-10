@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "answerExercises",
+@Entity(tableName = "answerExercisesAPA",
     foreignKeys = [
         ForeignKey(
             entity = Session::class,
@@ -15,10 +15,10 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class AnswerExercises(
-    @PrimaryKey(autoGenerate = true) val answerExercisesId : Int,
-    @ColumnInfo(name = "nb_exercises") val nb_exercices: Int,
-    @ColumnInfo(name = "difficulty") val difficulte: Int,
-    @ColumnInfo(name = "pain") val douleur: Int,
+data class AnswerExercisesAPA(
+    @PrimaryKey(autoGenerate = true) val answerExercisesAPAId : Int,
+    @ColumnInfo(name = "nb_exercises") val nb_exercises: Int,
+    @ColumnInfo(name = "difficulty") val difficulty: Int,
+    @ColumnInfo(name = "pain") val pain: Int,
     @ColumnInfo(name = "sessionId") val sessionId: Int
 )

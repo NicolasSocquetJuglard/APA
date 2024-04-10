@@ -52,8 +52,12 @@ class AnswerYesActivity : AppCompatActivity() {
     fun chooseAPA(imView: ImageView): Pair<Int, Int> {
 
         val db = AppDatabase.getInstance(applicationContext)
-        val reponsesDao = db.AnswerExercisesDao()
-        val listReponses = reponsesDao.getAllAnswerExercises()
+        val SessionDao = db.SessionDao()
+        val newSession = Session(0, "début", "fin", 1)
+        SessionDao.insertSession(newSession)
+
+        val reponsesDao = db.AnswerExercisesDaoAPA()
+        val listReponses = reponsesDao.getAllAnswerExercisesAPA()
         val lastThreeReponses = listReponses.takeLast(3)
         var somme_difficulte = 0
         var somme_douleur = 0
@@ -64,8 +68,8 @@ class AnswerYesActivity : AppCompatActivity() {
         val coef_douleur = 2
 
         for (reponse in lastThreeReponses){
-            somme_difficulte += reponse.difficulte
-            somme_douleur += reponse.douleur
+            somme_difficulte += reponse.difficulty
+            somme_douleur += reponse.pain
         }
         moyenne_difficulte = somme_difficulte/3
         moyenne_douleur = somme_douleur/3
