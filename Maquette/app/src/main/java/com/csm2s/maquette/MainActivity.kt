@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         val viewWelcomeQuestion = findViewById<TextView>(R.id.welcomeQuestion)
         val txtWelcomeQuestion = "Salut "+username+".\n"+applicationContext.getString(R.string.label_first_question_short)
         viewWelcomeQuestion.text = txtWelcomeQuestion
+
+        val random = Random
+        var index = random.nextInt(1, 7);
+        val viewMessage = findViewById<TextView>(R.id.textViewAboutAPA)
+        val message = getString(resources.getIdentifier("message$index", "string", packageName))
+        viewMessage.text = message
 
         val buttonYes = findViewById<Button>(R.id.buttonAnswerYes)
         buttonYes.setOnClickListener {
@@ -41,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

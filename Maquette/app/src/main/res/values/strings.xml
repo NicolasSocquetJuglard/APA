@@ -40,5 +40,10 @@
     <string name="notif_channel_name">APA Notification Channel</string>
     <string name="notif_channel_id">APA Notif Channel ID</string>
     <string name="notif_content_text">"C'est l'heure de l'APA !"</string>
-
+    <string name="message1">"La pratique d’une activité physique régulière améliore votre qualité d’endurance pour vous permettre de vous déplacer à pied et monter des escaliers. Source : INSERM"</string>
+    <string name="message2">"La pratique d’une activité physique régulière réduit la fatigue et améliore votre qualité de vie. Source : American Cancer Society"</string>
+    <string name="message3">"La pratique d’une activité physique régulière vous aide à gérer les effets secondaires du traitement et favorise la récupération. Source : Cancer Research UK"</string>
+    <string name="message4">"La pratique d’une activité physique régulière contribue à réduire le stress et l'anxiété associés au traitement. Source : European Journal of Cancer Care"</string>
+    <string name="message5">"La pratique d'une activité physique régulière améliore votre santé mentale et votre bien-être global. Source : Supportive Care in Cancer"</string>
+    <string name="message6">"La pratique d’une activité physique régulière permet d’augmenter votre masse musculaire, de diminuer votre poids corporel et votre masse grasse. Source : INSERM"</string>
 </resources>
