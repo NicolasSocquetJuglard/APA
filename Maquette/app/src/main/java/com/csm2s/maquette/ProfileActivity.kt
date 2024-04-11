@@ -18,7 +18,6 @@ import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import kotlin.random.Random
 
-
 class ProfileActivity : AppCompatActivity() {
     // utiliser des SharedPreferences (voir sur internet)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -144,16 +143,6 @@ class ProfileActivity : AppCompatActivity() {
         val lineData1 = LineData(dataSet1)
         chart1.data = lineData1
 
-        chart1.setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
-            override fun onValueSelected(e: Entry?, h: Highlight?) {
-                // Réagir à la sélection de valeur
-            }
-
-            override fun onNothingSelected() {
-                // Réagir à aucune sélection de valeur
-            }
-        })
-
         chart1.invalidate()
 
 //Graphique affichant les calories de chaque session
@@ -175,16 +164,6 @@ class ProfileActivity : AppCompatActivity() {
 
         val lineData2 = LineData(dataSet2)
         chart2.data = lineData2
-
-        chart2.setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
-            override fun onValueSelected(e: Entry?, h: Highlight?) {
-                // Réagir à la sélection de valeur
-            }
-
-            override fun onNothingSelected() {
-                // Réagir à aucune sélection de valeur
-            }
-        })
 
         chart2.invalidate()
 
