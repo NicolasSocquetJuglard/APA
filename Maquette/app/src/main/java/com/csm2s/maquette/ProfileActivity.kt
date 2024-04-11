@@ -1,5 +1,6 @@
 package com.csm2s.maquette
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,12 +15,11 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.highlight.Highlight
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import kotlin.random.Random
 
 class ProfileActivity : AppCompatActivity() {
     // utiliser des SharedPreferences (voir sur internet)
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -36,14 +36,14 @@ class ProfileActivity : AppCompatActivity() {
         currentUsername = currentUser.username
         txtUsername.text = currentUsername
 
-        val AnswerExercisesDaoAPA = db.AnswerExercisesDaoAPA()
+        val AnswerExercisesDaoAPA = db.AnswerExercisesAPADao()
         val listReponses = AnswerExercisesDaoAPA.getAllAnswerExercisesAPA()
 
         val physioDao = db.PhysioDao()
         val listPhysio = physioDao.getAllPhysio()
 
-        val SessionDao = db.SessionDao()
-        val listSession = SessionDao.getAllSessions()
+        val sessionDao = db.SessionDao()
+        val listSession = sessionDao.getAllSessions()
 
         val buttonModifyUsername = findViewById<ImageButton>(R.id.imageButtonModifyUsername)
         val txtNewUsername = findViewById<EditText>(R.id.editTextModifyUsername)
@@ -83,39 +83,62 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val random = Random
+
 /*
+        //permet de supprimer toutes les sessions
         for(session in listSession)
         {
-            //var newSession = Session(i, "début", "fin", 1)
-            //SessionDao.insertSession(newSession)
-            var current_sessionId = session.sessionId
+            sessionDao.deleteSession(session)
+        }
+*/
+/*
+//création de nouvelle session avec des données générées aléatoirement
+        for(i in 1 until 5)
+        {
 
-            var hearthBeat = random.nextInt(80, 140)
+            var newSession = Session(i, "début", "fin", 1)
+            sessionDao.insertSession(newSession)
+
+            //var current_sessionId = session.sessionId
+
+            var hearthBeat = random.nextInt(80, 150)
             var steps = random.nextInt(0, 1000)
             var calories = random.nextInt(0, 2500)
 
 
-            var newPhysio = Physio(0, "date", hearthBeat, steps, calories, current_sessionId)
+            var newPhysio = Physio(i, "date", hearthBeat, steps, calories, i)
             physioDao.insertPhysio(newPhysio)
 
             var nb_exercises = random.nextInt(0,6)
             var difficulty = random.nextInt(0, 10)
             var pain = random.nextInt(0, 10)
-            var newAnswer = AnswerExercisesAPA(0, nb_exercises, difficulty, pain, current_sessionId)
+            var newAnswer = AnswerExercisesAPA(i, nb_exercises, difficulty, pain, i)
             AnswerExercisesDaoAPA.insertAnswerExercisesAPA(newAnswer)
         }
-*/
+ */
 /*
+        //afficher une table de la bdd
         val textViewReponses = findViewById<TextView>(R.id.textViewReponses)
         var displayText = ""
 
-        for (physio in listPhysio) {
-            displayText += "ID: ${physio.physioId}, session: ${physio.sessionId}, heart: ${physio.heartBeat}\n"//, Nb Exercises: ${reponse.nb_exercises}, Difficulty: ${reponse.difficulty}, Pain: ${reponse.pain}, Session: ${reponse.sessionId}\n"
+        for (answer in listReponses) {
+            displayText += "ID réponse: ${answer.answerExercisesAPAId}, session: ${answer.sessionId}\n"
         }
 
-        textViewReponses.text = displayText
+        for (physio in listPhysio) {
+            displayText += "ID physio: ${physio.physioId}, session: ${physio.sessionId}\n"
+        }
 
-*/
+
+
+        for (session in listSession) {
+            displayText += "ID session: ${session.sessionId}\n"
+        }
+
+
+        textViewReponses.text = displayText
+ */
+
 
         val buttonProfToMain = findViewById<Button>(R.id.buttonProfileToMain)
         buttonProfToMain.setOnClickListener {

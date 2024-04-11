@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.RatingBar
 import android.widget.SeekBar
 import android.widget.TextView
+import kotlin.random.Random
 
 import androidx.appcompat.app.AlertDialog
 
@@ -19,8 +20,14 @@ class QuestionnairePostApaActivity : AppCompatActivity() {
 
         val db = AppDatabase.getInstance(applicationContext)
         val UserDao = db.userDao()
-        val SessionDao = db.SessionDao()
-        val AnswerExercisesDaoAPA = db.AnswerExercisesDaoAPA()
+        var SessionDao = db.SessionDao()
+        var list_session = SessionDao.getAllSessions()
+        var lastSession = list_session.last()
+        var newIndex = lastSession.sessionId
+
+        var AnswerExercisesAPADao = db.AnswerExercisesAPADao()
+
+        var physioDao = db.PhysioDao()
 
         val ratingBarNumberExercises = findViewById<RatingBar>(R.id.ratingBarNumberExercises)
         ratingBarNumberExercises.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
@@ -64,13 +71,17 @@ class QuestionnairePostApaActivity : AppCompatActivity() {
             val dialogBuilder = AlertDialog.Builder(this)
             dialogBuilder.setTitle("Merci !")
             dialogBuilder.setMessage("Vos réponses ont bien été envoyées")
-            val AllUsers = UserDao.getAllUsers()
-            val current_user = AllUsers[0]
-            // Il faudra récupérer les valeurs des 2 seekBars soit pour mettre sur SQLite soit les passer dans l'Intent
-            val list_session = SessionDao.getAllSessions()
 
-            val reponse_actuelle = AnswerExercisesAPA(0, nbExercicesRating, seekBarDifficulty.progress, seekBarPain.progress, list_session.size)
-            AnswerExercisesDaoAPA.insertAnswerExercisesAPA(reponse_actuelle)
+            var reponse_actuelle = AnswerExercisesAPA(newIndex, nbExercicesRating, seekBarDifficulty.progress, seekBarPain.progress, newIndex)
+            AnswerExercisesAPADao.insertAnswerExercisesAPA(reponse_actuelle)
+
+            val random = Random
+            var hearthBeat = random.nextInt(80,150)
+            var steps = random.nextInt(0, 1000)
+            var calories = random.nextInt(0, 2500)
+            var newPhysio = Physio(newIndex, "date", hearthBeat, steps, calories, newIndex)
+            physioDao.insertPhysio(newPhysio)
+
             dialogBuilder.setPositiveButton("Retour à l'accueil") { alertDialog, which ->
                 Intent(this, ProfileActivity::class.java).also {
                     startActivity(it)

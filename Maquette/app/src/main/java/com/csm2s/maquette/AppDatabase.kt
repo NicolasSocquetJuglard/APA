@@ -33,7 +33,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
     //abstract fun AnswerExercisesDao(): AnswerExercisesDao
-    abstract fun AnswerExercisesDaoAPA(): AnswerExercisesDaoAPA
+    abstract fun AnswerExercisesAPADao(): AnswerExercisesDaoAPA
     abstract fun SessionDao(): SessionDao
     abstract fun AnswerRefusalDao(): AnswerRefusalDao
     abstract fun PhysioDao(): PhysioDao

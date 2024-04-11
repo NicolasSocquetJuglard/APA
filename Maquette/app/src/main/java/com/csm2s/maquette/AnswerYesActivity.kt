@@ -52,20 +52,60 @@ class AnswerYesActivity : AppCompatActivity() {
     fun chooseAPA(imView: ImageView): Pair<Int, Int> {
 
         val db = AppDatabase.getInstance(applicationContext)
+
         val SessionDao = db.SessionDao()
-        val newSession = Session(0, "début", "fin", 1)
+        var list_session = SessionDao.getAllSessions()
+        var lastSession = list_session.last()
+        var newIndex = lastSession.sessionId + 1
+        val newSession = Session(newIndex, "début", "fin", 1)
         SessionDao.insertSession(newSession)
 
-        val reponsesDao = db.AnswerExercisesDaoAPA()
+        val physioDao = db.PhysioDao()
+        val listPhysio = physioDao.getAllPhysio()
+        val lastThreePhysio = listPhysio.takeLast(3)
+
+        var sumCalories = 0
+        var sumHearthBeat = 0
+        var meanCalories = 0
+        var meanHearthBeat = 0
+        var MET = 0
+        var differenceMET = 0
+
+        val refMET = 6
+        val coefMET = 10
+        val coefHearthBeat = 0.3
+        val coefObjective = 1.5
+
+        //à intégrer dans la bdd
+        val height = 180
+        val weight = 80
+
+        var objectiveScore = 0
+
+        for (physio in lastThreePhysio)
+        {
+            sumCalories += physio.calories
+            sumHearthBeat += physio.heartBeat
+        }
+        meanCalories = sumCalories/3
+        meanHearthBeat = sumHearthBeat/3
+
+        MET = meanCalories/(weight*height)
+        differenceMET = MET - refMET
+
+        objectiveScore = (80 + coefMET*differenceMET + coefHearthBeat*meanHearthBeat).toInt()
+
+        val reponsesDao = db.AnswerExercisesAPADao()
         val listReponses = reponsesDao.getAllAnswerExercisesAPA()
         val lastThreeReponses = listReponses.takeLast(3)
         var somme_difficulte = 0
         var somme_douleur = 0
         var moyenne_difficulte = 0
         var moyenne_douleur = 0
-        var score = 80
+        var subjectiveScore = 80
         val coef_difficulte = 2
         val coef_douleur = 2
+        val coefSubjective = 0.5
 
         for (reponse in lastThreeReponses){
             somme_difficulte += reponse.difficulty
@@ -74,13 +114,16 @@ class AnswerYesActivity : AppCompatActivity() {
         moyenne_difficulte = somme_difficulte/3
         moyenne_douleur = somme_douleur/3
 
-        score += coef_difficulte*moyenne_difficulte + coef_douleur*moyenne_douleur
+        subjectiveScore += coef_difficulte*moyenne_difficulte + coef_douleur*moyenne_douleur
         val numApa = Random.nextInt(1,NUMBER_APA+1)
         var numStar: Int = 1
-        if(score <= 90){
+
+        var finalScore = coefObjective*objectiveScore + coefSubjective*subjectiveScore
+
+        if(finalScore <= 90){
             numStar = 3
         }
-        else if (score >= 110){
+        else if (finalScore >= 110){
             numStar = 1
         }
         else {
@@ -88,7 +131,7 @@ class AnswerYesActivity : AppCompatActivity() {
         }
 
         val textViewScore = findViewById<TextView>(R.id.textViewScore)
-        var displayText = "Score = $score numStar = $numStar"
+        var displayText = "Score = $subjectiveScore numStar = $numStar"
         textViewScore.text = displayText
 
         val nameApa1 = "s$numStar"+"e_$numApa"+"p1"
