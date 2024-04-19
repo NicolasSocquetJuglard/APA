@@ -61,8 +61,8 @@ class LoginActivity : AppCompatActivity() {
         passwordView.addTextChangedListener(myTextWatcher)
         emailView.addTextChangedListener(myTextWatcher)
 
-        val trueEmail = "g"
-        val truePassword = "g"
+        val trueEmail = "go@gmail.com"
+        val truePassword = "go"
 
         buttonLogin.setOnClickListener {
             val email = emailView.text.toString().trim()
